@@ -59,7 +59,7 @@
     --section-footer-padding: 3rem 0 0;
     --section-footer-align: center;
   
-    /** HEADER **/
+    /** HEADER **3/
     --header-padding: 4rem 0 0;
     --header-logo-position: relative;
     --header-logo-link-display: inline-block;
@@ -179,27 +179,40 @@
   
   /* Grid
       ============================= */
-   .row {
-          display: flex;  
-   }
-  
-  ul.row {
+      .row {display:flex;
+    flex-direction:row; 
+        }
+
+ ul.row {
     margin: -1rem;
+    padding: 0;
     list-style: none;
   }
   
-  [class*='col-'] {
-    padding: 1rem;
-  }
+  /*.row::after {
+    content: '';
+    display: table;
+    clear: both;
+  }*/
+  
+  
+
+[class*='col-'] {
+   /* float: left;*/
+   /* padding: 0.5rem;*/
+   margin: 1rem;
+ }
+  
   
   .col-1-3 {
-    width: calc((100% / 3) - 2rem);
+   width: calc ( (100% / 3) -2rem);
   }
   
   .col-1-2 {
-    width: calc((100% / 2) - 2rem);
+   width:calc((100% / 2) -2rem);
   }
   
+ 
   /* Navbar
       ============================= */
   
@@ -370,16 +383,13 @@
   }
   /* Section Latest news ============================= */
   .section-latest-news .row {display:flex;
-    flex-direction:row-reverse;
-    }
-  }
-  /* Section SERVICES ============================= */
-  .section-services .row { display:flex;
-    flex-wrap: wrap;
-
-  }
-  /*** 4. CARD ***/
+flex-direction:row-reverse;
+}
+/* Section SERVICES ============================= */
+.section-services .row {display:flex;
+    flex-wrap: wrap;}
   
+  /*** 4. CARD ***/
   
   /* Card (all styles)
       ============================= */
@@ -455,8 +465,10 @@
   
   /* Card SERVICES
       ============================= */
-  
-  .card-services .card-title {
+      
+
+
+ .card-services .card-title {
     margin: 0;
   }
   
@@ -506,3 +518,4 @@
     font-size: 10rem;
     z-index: -1;
   }
+    
