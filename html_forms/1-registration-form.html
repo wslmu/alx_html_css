@@ -1,96 +1,37 @@
-<!-- Design an HTML registration form with the following specifications:
-
-Include fields for the user’s name, email, password, and confirm password.
-Implement HTML5 validation attributes to ensure all fields are required,
-And the email field accepts a valid email format, and the password fields match.
-Use appropriate input types (e.g., email, password) and labels for each field. -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Form</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
 </head>
-<style>
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 150vh;
-    }
-
-    form {
-        border: 1px solid gray;
-        border-radius: 5%;
-    }
-
-    ul {
-        list-style: none;
-        margin: 10px;
-        padding: 0;
-    }
-
-    li {
-        margin-bottom: 5%;
-    }
-
-    label {
-        /* Uniform size & alignment */
-        display: inline-block;
-        width: 80px;
-        text-align: right;
-    }
-
-    button {
-        margin-left: 50%;
-        width: 30%;
-        cursor: pointer;
-    }
-</style>
-
 <body>
-    <h2>Login Details</h2>
-    <form action="#" method="post" onsubmit="return validateForm()">
-        <ul>
-            <li>
-                <label for="name">Name:</label>
-                <input type="text" name="userName" id="name" required>
-            </li>
-            <li>
-                <label for="email">Email:</label>
-                <input type="email" name="userEmail" id="email" required>
-            </li>
-            <li>
-                <label for="password">Password:</label>
-                <input type="password" name="userPassword" id="password" minlength="8" required>
-            </li>
-            <li>
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="userPassword" id="confirmPassword" minlength="8" required>
-            </li>
-            <li>
-                <button type="submit">Login</button>
-            </li>
-        </ul>
-    </form>
-
-    <script>
-        function validateForm() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-
-            if (password !== confirmPassword) {
-                alert("Passwords do not match");
-                return false;
-            }
-
-            return true;
-        }
-    </script>
-
+  <form>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd" required pattern=".{8,}">
+    
+    <label for="confirm-pwd">Confirm Password:</label><br>
+    <input type="password" id="confirm-pwd" name="confirm-pwd" required pattern=".{8,}" oninput="checkPasswordMatch();">
+    <small id="passwordMatchError"></small><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    function checkPasswordMatch() {
+      var pwd = document.getElementById("pwd").value;
+      var confirmPwd = document.getElementById("confirm-pwd").value;
+      if (pwd != confirmPwd) {
+        document.getElementById("passwordMatchError").innerHTML = "Passwords do not match!";
+      } else {
+        document.getElementById("passwordMatchError").innerHTML = "";
+      }
+    }
+  </script>
 </body>
-
 </html>

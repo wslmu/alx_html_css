@@ -3,35 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration Form</title>
+  <title>Survey Form</title>
 </head>
 <body>
-  <form>
-    <label for="name">Name:</label><br>
-    <input type="text" id="name" name="name" required><br>
-    
-    <label for="email">Email:</label><br>
-    <input type="email" id="email" name="email" required><br>
-    
-    <label for="pwd">Password:</label><br>
-    <input type="password" id="pwd" name="pwd" required pattern=".{8,}">
-    
-    <label for="confirm-pwd">Confirm Password:</label><br>
-    <input type="password" id="confirm-pwd" name="confirm-pwd" required pattern=".{8,}" oninput="checkPasswordMatch();">
-    <small id="passwordMatchError"></small><br>
-    
-    <input type="submit" value="Submit">
-  </form>
-  <script>
-    function checkPasswordMatch() {
-      var pwd = document.getElementById("pwd").value;
-      var confirmPwd = document.getElementById("confirm-pwd").value;
-      if (pwd != confirmPwd) {
-        document.getElementById("passwordMatchError").innerHTML = "Passwords do not match!";
-      } else {
-        document.getElementById("passwordMatchError").innerHTML = "";
-      }
-    }
-  </script>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        
+        <label for="favorite-color">Favorite Color:</label><br>
+        <select id="favorite-color" name="favorite-color" required>
+          <option value="">Select a color</option>
+          <option value="red">Red</option>
+          <option value="blue">Blue</option>
+          <option value="green">Green</option>
+        </select><br>
+        
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" required><br>
+        
+        <label for="time">Time:</label><br>
+        <input type="time" id="time" name="time" required><br>
+        
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
