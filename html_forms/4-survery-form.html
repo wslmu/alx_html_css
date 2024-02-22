@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+</head>
+<body>
+  <form>
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name" required><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+    
+    <label for="pwd">Password:</label><br>
+    <input type="password" id="pwd" name="pwd" required pattern=".{8,}">
+    
+    <label for="confirm-pwd">Confirm Password:</label><br>
+    <input type="password" id="confirm-pwd" name="confirm-pwd" required pattern=".{8,}" oninput="checkPasswordMatch();">
+    <small id="passwordMatchError"></small><br>
+    
+    <input type="submit" value="Submit">
+  </form>
+  <script>
+    function checkPasswordMatch() {
+      var pwd = document.getElementById("pwd").value;
+      var confirmPwd = document.getElementById("confirm-pwd").value;
+      if (pwd != confirmPwd) {
+        document.getElementById("passwordMatchError").innerHTML = "Passwords do not match!";
+      } else {
+        document.getElementById("passwordMatchError").innerHTML = "";
+      }
+    }
+  </script>
+</body>
+</html>
